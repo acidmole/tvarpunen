@@ -50,4 +50,7 @@ public class User extends AbstractPersistable<Long> {
     @OneToMany(mappedBy = "commentingUser")
     private List<Comment> comments;
     
+    @OneToMany(mappedBy = "owner")
+    private List<Post> posts;
+    
 }
