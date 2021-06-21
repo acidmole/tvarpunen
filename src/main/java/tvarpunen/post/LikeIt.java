@@ -13,6 +13,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.jpa.domain.AbstractPersistable;
+import tvarpunen.user.User;
 
 /**
  *
@@ -20,14 +21,9 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
  */
 @Entity
 @Data @NoArgsConstructor @AllArgsConstructor
-public class Post extends AbstractPersistable<Long> {
+public class LikeIt extends AbstractPersistable<Long> {
     
-    @Id
-    private final Long id;
-    
-    private Long userId;
-    private LocalDateTime dateAndTime;
-    private String content;
-    private List<LikeIt> likes;
+    private User likingUser;
+    private Post likedPost;
     
 }

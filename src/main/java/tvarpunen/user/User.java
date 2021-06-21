@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tvarpunen.post;
+package tvarpunen.user;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -13,6 +13,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.jpa.domain.AbstractPersistable;
+import tvarpunen.picture.Picture;
 
 /**
  *
@@ -20,14 +21,17 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
  */
 @Entity
 @Data @NoArgsConstructor @AllArgsConstructor
-public class Post extends AbstractPersistable<Long> {
+public class User extends AbstractPersistable<Long> {
     
     @Id
     private final Long id;
     
-    private Long userId;
-    private LocalDateTime dateAndTime;
-    private String content;
-    private List<LikeIt> likes;
+    private String loginId;
+    private String password;
+    private String username;
+    private List<User> followers;
+    private List<User> following;
+    private List<Picture> pictures;
+    private List<User> blocks;
     
 }
