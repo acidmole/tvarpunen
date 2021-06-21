@@ -9,11 +9,14 @@ import java.time.LocalDateTime;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 import tvarpunen.picture.Picture;
+import tvarpunen.post.*;
 
 /**
  *
@@ -22,16 +25,29 @@ import tvarpunen.picture.Picture;
 @Entity
 @Data @NoArgsConstructor @AllArgsConstructor
 public class User extends AbstractPersistable<Long> {
+
     
     @Id
-    private final Long id;
+    private Long id;
     
     private String loginId;
     private String password;
+    private String fullName;
     private String username;
-    private List<User> followers;
-    private List<User> following;
+
+    @ManyToMany(mappedBy = "followingUsers")
+    private List<Follow> followers;
+
+    @ManyToMany(mappedBy = "followedUsers")
+    private List<Follow> following;
+    
+    @OneToMany(mappedBy = "favoringUser")
+    private List<Favor> favors;
+
+    @OneToMany(mappedBy = "user")
     private List<Picture> pictures;
-    private List<User> blocks;
+    
+    @OneToMany(mappedBy = "commentingUser")
+    private List<Comment> comments;
     
 }

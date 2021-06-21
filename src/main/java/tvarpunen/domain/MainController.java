@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  *
  * @author hede
  */
+@Controller
 public class MainController {
     
 }

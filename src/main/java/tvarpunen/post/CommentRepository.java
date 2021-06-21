@@ -5,10 +5,12 @@
  */
 package tvarpunen.post;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+
 /**
  *
  * @author hede
  */
-public interface CommentRepository {
+public interface CommentRepository extends JpaRepository<Comment, Long>{
     
 }

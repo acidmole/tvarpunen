@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,11 +24,15 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 public class Post extends AbstractPersistable<Long> {
     
     @Id
-    private final Long id;
-    
-    private Long userId;
+    private Long id;
     private LocalDateTime dateAndTime;
     private String content;
-    private List<LikeIt> likes;
+    
+    @OneToMany(mappedBy = "favoredPost")
+    private List<Favor> likes;
+    
+    @OneToMany(mappedBy = "post")
+    private List<Comment> comments;
+    
     
 }

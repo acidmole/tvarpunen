@@ -20,7 +20,7 @@ public class Tvarpunen {
      */
     public static void main(String[] args) throws Exception {
         // TODO code application logic here
-        SpringApplication.run(MainController.class, args);
+        SpringApplication.run(Tvarpunen.class, args);
     }
     
 }
