@@ -25,7 +25,10 @@ public class MainService {
     private UserRepository userRepository;
     
     public List<Post> listPosts() {
-        List<Post> posts = this.postRepository.findAll();
+        User u = new User();
+        List<User> followedUsers = this.userRepository.findByFollowingFrom(u);
+        
+        List<Post> posts = this.postRepository.findByUser(u);
         return posts;
         
     }

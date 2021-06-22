@@ -9,16 +9,13 @@ package tvarpunen.user;
  *
  * @author hede
  */
-import java.time.LocalDateTime;
-import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.jpa.domain.AbstractPersistable;
-import tvarpunen.picture.Picture;
 
 /**
  *
@@ -26,14 +23,14 @@ import tvarpunen.picture.Picture;
  */
 @Entity
 @Data @NoArgsConstructor @AllArgsConstructor
-public class Follow extends AbstractPersistable<Long> {
+public class Follower extends AbstractPersistable<Long> {
 
     @Id
     private Long id;
-    @ManyToMany
-    private List<User> followingUsers;
-    @ManyToMany
-    private List<User> followedUsers;
-    
+    /*@ManyToOne
+    private User followingUser;
+    @ManyToOne
+    private User followedUser;
+    */
     
 }

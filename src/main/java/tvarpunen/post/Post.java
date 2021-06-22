@@ -31,7 +31,7 @@ public class Post extends AbstractPersistable<Long> {
     private String content;
     
     @ManyToOne
-    private User owner;
+    private User user;
     
     @OneToMany(mappedBy = "favoredPost")
     private List<Favor> likes;

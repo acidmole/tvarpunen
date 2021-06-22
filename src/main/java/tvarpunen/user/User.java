@@ -35,11 +35,11 @@ public class User extends AbstractPersistable<Long> {
     private String fullName;
     private String username;
 
-    @ManyToMany(mappedBy = "followingUsers")
-    private List<Follow> followers;
+    @ManyToMany
+    private List<User> followingFrom;
 
-    @ManyToMany(mappedBy = "followedUsers")
-    private List<Follow> following;
+    @ManyToMany(mappedBy = "followingFrom")
+    private List<User> followedTo;
     
     @OneToMany(mappedBy = "favoringUser")
     private List<Favor> favors;
@@ -50,7 +50,7 @@ public class User extends AbstractPersistable<Long> {
     @OneToMany(mappedBy = "commentingUser")
     private List<Comment> comments;
     
-    @OneToMany(mappedBy = "owner")
+    @OneToMany(mappedBy = "user")
     private List<Post> posts;
     
 }

@@ -16,7 +16,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  *
  * @author hede
  */
-public interface FollowRepository extends JpaRepository<Follow, Long> {
+public interface FollowerRepository extends JpaRepository<Follower, Long> {
     
     
 }
